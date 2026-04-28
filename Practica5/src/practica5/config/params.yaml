@@ -1,0 +1,7 @@
+robot_camarero:
+  ros__parameters:
+    use_sim_time: true
+    kitchen_x: 1.0
+    kitchen_y: 1.0
+    base_x: 0.0
+    base_y: 0.0

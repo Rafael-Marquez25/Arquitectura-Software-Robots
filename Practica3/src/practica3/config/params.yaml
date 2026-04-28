@@ -1,0 +1,16 @@
+nearest_obstacle_detector_node:
+  ros__parameters:
+    use_sim_time: true
+    min_distance: 0.75
+
+detection_2d_node:
+  ros__parameters:
+    use_sim_time: true
+
+detection_3d_node:
+  ros__parameters:
+    use_sim_time: true
+
+orientation_control_node:
+  ros__parameters:
+    use_sim_time: true

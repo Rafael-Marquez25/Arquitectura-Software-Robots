@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="Untitled">
+    <Repeat num_cycles="-1">
+      <Sequence>
+        <RetryUntilSuccessful num_attempts="-1">
+          <IsPersonDetected/>
+        </RetryUntilSuccessful>
+        <Sequence>
+          <Sequence name="DrinkOrder">
+            <SayText text="¿Qué quieres beber?"/>
+            <ListenText recognized_text="{order}"/>
+            <ExtractInfo interest="bebida"
+                         full_text="{order}"
+                         extracted_info="{drink_order}"/>
+            <SayText text="Has dicho que quieres {drink_order}. Perfecto."/>
+          </Sequence>
+          <Sequence name="FoodOrder">
+            <SayText text="¿Qué quieres comer?"/>
+            <ListenText recognized_text="{order}"/>
+            <ExtractInfo interest="comida"
+                         full_text="{order}"
+                         extracted_info="{food_order}"/>
+            <SayText text="Has dicho que quieres {food_order}. Perfecto."/>
+          </Sequence>
+          <MoveTowardsGoal name="MoveToKitchen"
+                           goal_x="{kitchen_x}"
+                           goal_y="{kitchen_y}"
+                           goal_theta="0.0"/>
+          <Wait seconds="5"/>
+          <MoveTowardsGoal name="MoveTobase"
+                           goal_x="{base_x}"
+                           goal_y="{base_y}"
+                           goal_theta="0.0"/>
+        </Sequence>
+      </Sequence>
+    </Repeat>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="ExtractInfo"
+            editable="true">
+      <input_port name="interest"/>
+      <input_port name="full_text"/>
+      <output_port name="extracted_info"/>
+    </Action>
+    <Condition ID="IsPersonDetected"
+               editable="true"/>
+    <Action ID="ListenText"
+            editable="true">
+      <output_port name="recognized_text"/>
+    </Action>
+    <Action ID="MoveTowardsGoal"
+            editable="true">
+      <input_port name="goal_x"
+                  type="double"/>
+      <input_port name="goal_y"
+                  type="double"/>
+      <input_port name="goal_theta"
+                  type="double"/>
+    </Action>
+    <Action ID="SayText"
+            editable="true">
+      <input_port name="text"/>
+    </Action>
+    <Action ID="Wait"
+            editable="true">
+      <input_port name="seconds"
+                  type="double"/>
+    </Action>
+  </TreeNodesModel>
+
+</root>

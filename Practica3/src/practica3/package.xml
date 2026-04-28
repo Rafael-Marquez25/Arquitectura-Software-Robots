@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="3">
+
+  <name>practica3</name>
+  <version>0.1.0</version>
+  <description>practica3</description>
+
+  <maintainer email="re.marquez.2024@alumnos.urjc.es">Rafael Márquez</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>yolo_msgs</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+
+</package>
